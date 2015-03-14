@@ -137,8 +137,11 @@ You may generate your signing certificates using the same openssl-based steps ab
 
 To test connecting to the APNS gateway (the development sandbox in this case):
 
+1. Download Entrust CA
+```curl -O https://www.entrust.net/downloads/binary/entrust_2048_ca.cer```
+2. Test command
 ```bash
-openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert YourApp-Development-Push.cert.pem -key YourApp-Development-Push.key.pem
+openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert YourApp-Development-Push.cert.pem -key YourApp-Development-Push.key.pem -CAfile entrust_2048_ca.cer
 ```
 
 ## APNS with over-the-air (OTA) Deployments ##
